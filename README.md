@@ -1,10 +1,10 @@
-# GitHub Actions best practices
+# rzv-ci-plb: the Runzivo CI playbook
 
-Working, tested examples of GitHub Actions CI pipelines, plus a small shell
-library for logging, error handling, cleanup and paths. Every example runs
-in this repository's own CI and on your machine.
+Working, tested CI pipeline examples, starting with GitHub Actions (GitLab CI
+is planned), plus a small shell library for logging, error handling, cleanup
+and paths. Every example runs in this repository's own CI and on your machine.
 
-Repository: `github.com/Runzivo/actions-best-practices`. MIT licensed.
+Repository: `github.com/Runzivo/rzv-ci-plb`. MIT licensed.
 If it helps you, please star the repository; issues and pull requests are welcome.
 
 ## The rule
