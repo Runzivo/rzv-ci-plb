@@ -42,5 +42,16 @@ Each standard links to the code that applies it.
     [setup-ci](../.github/actions/setup-ci/action.yml),
     [runzivo.yml](../.github/workflows/runzivo.yml)
 
+## Numbered scripts
+
+Every script, helper and Bats file starts with a two-digit number in load
+or run order: `scripts/lib/01-logging.sh` before `03-errors.sh`,
+`examples/docker/ci/01-build.sh` before `02-test.sh`. `00` is for setup
+or shared utilities that everything else needs. The numbers show the order
+at a glance, keep directory listings sorted that way, and make an unused
+script stand out. Always number new scripts.
+
+GitHub environments use numbered ids too; see [environments.md](environments.md).
+
 These are this repository's conventions. GitHub Actions does not require
 them; they make pipelines easier to test, review and debug.

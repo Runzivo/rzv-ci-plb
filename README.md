@@ -5,14 +5,14 @@ library for logging, error handling, cleanup and paths. Every example runs
 in this repository's own CI and on your machine.
 
 Repository: `github.com/Runzivo/actions-best-practices`. MIT licensed.
+If it helps you, please star the repository; issues and pull requests are welcome.
 
 ## The rule
 
-Keep workflow YAML declarative. A `run:` step may hold a simple command of
-up to three lines. Anything with conditions, loops, retries, cleanup or
-error handling goes in a script under version control that also runs
-locally. The ten standards that follow from it are in
-[docs/best-practices.md](docs/best-practices.md).
+Keep workflow YAML declarative. A `run:` step holds at most three lines of
+simple commands. Conditions, loops, retries, cleanup and error handling go
+in a script that also runs locally. The ten standards built on this rule
+are in [docs/best-practices.md](docs/best-practices.md).
 
 ## Examples
 
@@ -51,9 +51,9 @@ CI installs pinned, checksum-verified versions with
 ## More
 
 - [AGENTS.md](AGENTS.md): instructions for AI coding agents
-- [docs/security.md](docs/security.md), [docs/troubleshooting.md](docs/troubleshooting.md)
-- [docs/ai-agent-guide.md](docs/ai-agent-guide.md): generating workflows
-  and handling credentials with agents
+- [docs/security.md](docs/security.md), [docs/environments.md](docs/environments.md),
+  [docs/troubleshooting.md](docs/troubleshooting.md)
+- [docs/ai-agent-guide.md](docs/ai-agent-guide.md): agents and credentials
 - [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md)
 
 Terraform and Ansible examples are planned for a later release and will
