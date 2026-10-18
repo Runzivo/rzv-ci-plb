@@ -1,0 +1,5 @@
+# Labels of self-hosted runners used by literal `runs-on:` values.
+# Runzivo documents this label at https://runzivo.dev/docs/runners/
+self-hosted-runner:
+  labels:
+    - rzv-ubuntu-24.04-x64-2vcpu-8gb

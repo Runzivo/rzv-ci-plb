@@ -1,0 +1,16 @@
+name: Set up CI tools
+description: Install pinned, checksum-verified validation tools on Linux x86_64.
+
+inputs:
+  tools:
+    description: Space-separated list from actionlint, shellcheck, shfmt, bats, zizmor.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install tools
+      shell: bash
+      env:
+        TOOLS: ${{ inputs.tools }}
+      run: bash "${GITHUB_WORKSPACE}/scripts/ci/install-tools.sh"

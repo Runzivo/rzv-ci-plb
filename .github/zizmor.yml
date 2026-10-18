@@ -1,0 +1,11 @@
+rules:
+  # Every action, including actions/*, must be pinned to a full commit SHA.
+  unpinned-uses:
+    config:
+      policies:
+        "*": hash-pin
+  # GitHub's `uses: $/...` self-repository syntax is not yet understood by
+  # actionlint (rhysd/actionlint#711), so local actions and reusable
+  # workflows keep `./`. Re-enable once actionlint supports it.
+  self-repository:
+    disable: true
