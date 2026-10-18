@@ -1,11 +1,12 @@
 # rzv-ci-plb: the Runzivo CI playbook
 
+<picture><source media="(prefers-reduced-motion: reduce)" srcset=".github/assets/poster.png"><img src=".github/assets/preview.gif" width="1280" alt="rzv-ci-plb: lint, test and the three-line rule, checked in this repository's CI"></picture>
+
 Working, tested CI pipeline examples, starting with GitHub Actions (GitLab CI
 is planned), plus a small shell library for logging, error handling, cleanup
 and paths. Every example runs in this repository's own CI and on your machine.
 
-Repository: `github.com/Runzivo/rzv-ci-plb`. MIT licensed.
-If it helps you, please star the repository; issues and pull requests are welcome.
+MIT licensed. If it helps you, please star the repository; issues and pull requests are welcome.
 
 ## The rule
 
@@ -56,5 +57,4 @@ CI installs pinned, checksum-verified versions with
 - [docs/ai-agent-guide.md](docs/ai-agent-guide.md): agents and credentials
 - [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md)
 
-Terraform and Ansible examples are planned for a later release and will
-use the same library and layout.
+Terraform and Ansible examples are planned and will use the same library and layout.
