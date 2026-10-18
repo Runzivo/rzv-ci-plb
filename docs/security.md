@@ -34,7 +34,8 @@ attacker-controlled. Never expand them inside `run:`; pass them through
 - name: Show title
   env:
     PR_TITLE: ${{ github.event.pull_request.title }}
-  run: printf 'Title: %s\n' "$PR_TITLE"
+  run: |
+    printf 'Title: %s\n' "$PR_TITLE"
 ```
 
 Avoid `pull_request_target` and `workflow_run` for code from forks. If you
