@@ -38,7 +38,7 @@ structure.
 - Repository scripts live in `scripts/ci/`; example scripts in
   `examples/<stack>/ci/`; shared helpers in `scripts/lib/`.
 - Start with `set -Eeuo pipefail`, resolve paths from `BASH_SOURCE`, source
-  `scripts/lib/errors.sh` and call `errors_install_traps`.
+  `scripts/lib/03-errors.sh` and call `errors_install_traps`.
 - Logging: `log_info`, `log_warn`, `log_error`, `log_group_start`,
   `log_group_end`, `summary_add`. Failing: `die MESSAGE [CODE]`.
 - Prerequisites: `require_cmd`, `require_env`. Transient failures:
@@ -50,8 +50,8 @@ structure.
 ## Validate before you finish
 
 ```bash
-bash scripts/ci/validate.sh   # actionlint, shellcheck, shfmt, zizmor
-bash scripts/ci/test.sh       # Bats tests and every example
+bash scripts/ci/01-validate.sh   # actionlint, shellcheck, shfmt, zizmor
+bash scripts/ci/02-test.sh       # Bats tests and every example
 ```
 
 Add Bats tests for new helpers covering success, failure and cleanup. For

@@ -13,4 +13,4 @@ runs:
       shell: bash
       env:
         TOOLS: ${{ inputs.tools }}
-      run: bash "${GITHUB_WORKSPACE}/scripts/ci/install-tools.sh"
+      run: bash "${GITHUB_WORKSPACE}/scripts/ci/00-install-tools.sh"

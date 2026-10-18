@@ -1,8 +1,8 @@
 #!/usr/bin/env bats
-# Tests for scripts/lib/errors.sh.
+# Tests for scripts/lib/03-errors.sh.
 
 setup() {
-  load test_helper
+  load 00-test-helper
 }
 
 @test "die exits 1 by default with an [ERROR] message" {

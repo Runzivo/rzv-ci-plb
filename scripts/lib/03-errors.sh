@@ -8,8 +8,8 @@ if [[ -n "${_LIB_ERRORS_LOADED:-}" ]]; then
 fi
 _LIB_ERRORS_LOADED=1
 
-# shellcheck source=logging.sh
-source "$(dirname -- "${BASH_SOURCE[0]}")/logging.sh"
+# shellcheck source=01-logging.sh
+source "$(dirname -- "${BASH_SOURCE[0]}")/01-logging.sh"
 
 # die MESSAGE [EXIT_CODE]: log an error and exit (default 1).
 die() {

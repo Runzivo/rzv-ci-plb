@@ -40,13 +40,13 @@ runner when the `RUNZIVO_RUNNER_LABEL` repository variable is set.
 
 ```bash
 brew install actionlint shellcheck shfmt bats-core zizmor   # macOS
-bash scripts/ci/validate.sh        # actionlint, shellcheck, shfmt, zizmor
-bash scripts/ci/test.sh            # Bats tests and every example
-bash scripts/ci/test.sh golang     # one suite
+bash scripts/ci/01-validate.sh        # actionlint, shellcheck, shfmt, zizmor
+bash scripts/ci/02-test.sh            # Bats tests and every example
+bash scripts/ci/02-test.sh golang     # one suite
 ```
 
 CI installs pinned, checksum-verified versions with
-[scripts/ci/install-tools.sh](scripts/ci/install-tools.sh).
+[scripts/ci/00-install-tools.sh](scripts/ci/00-install-tools.sh).
 
 ## More
 

@@ -8,24 +8,24 @@ Each standard links to the code that applies it.
 2. **Fail clearly and keep exit codes.** `set -Eeuo pipefail`, an ERR trap
    that names the file, line and command, and `die` with a specific code.
    No `|| true` or `continue-on-error` without a written reason.
-   [errors.sh](../scripts/lib/errors.sh)
+   [03-errors.sh](../scripts/lib/03-errors.sh)
 3. **Always clean up.** Register cleanup as you create resources; it runs
    on success, failure, `INT` and `TERM`, newest first, and keeps the exit
    code. Traps cannot run after `SIGKILL`, so keep resources disposable.
-   [cleanup.sh](../scripts/lib/cleanup.sh),
-   [docker/ci/test.sh](../examples/docker/ci/test.sh)
+   [04-cleanup.sh](../scripts/lib/04-cleanup.sh),
+   [docker/ci/02-test.sh](../examples/docker/ci/02-test.sh)
 4. **Use absolute paths.** `${GITHUB_WORKSPACE}` in workflows, `BASH_SOURCE`
    in scripts. Quote every path; validate input paths with `path_within`.
-   [paths.sh](../scripts/lib/paths.sh)
+   [02-paths.sh](../scripts/lib/02-paths.sh)
 5. **Log consistently.** `[INFO]`, `[WARN]`, `[ERROR]` with UTC timestamps
    on stderr; `::group::`, `::error::` and `$GITHUB_STEP_SUMMARY` inside
-   Actions. Never log secrets. [logging.sh](../scripts/lib/logging.sh)
+   Actions. Never log secrets. [01-logging.sh](../scripts/lib/01-logging.sh)
 6. **Least privilege.** `contents: read` by default, actions pinned to
    commit SHAs, untrusted values passed through `env:`, no persisted
    checkout credentials. [security.md](security.md)
 7. **Repeatable, retry-safe jobs.** Pin tool versions and checksums, commit
    lockfiles, set `timeout-minutes` and `concurrency`, and retry only
-   transient failures. [install-tools.sh](../scripts/ci/install-tools.sh)
+   transient failures. [00-install-tools.sh](../scripts/ci/00-install-tools.sh)
 8. **Separate test, build and deploy.** Pull requests run tests without
    deployment credentials. Builds are their own step or job. Deploys run on
    `main` through a protected GitHub environment.

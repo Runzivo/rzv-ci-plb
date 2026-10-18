@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run the repository tests: Bats tests for the helpers and each example.
-# Usage: scripts/ci/test.sh [SUITE...]
+# Usage: scripts/ci/02-test.sh [SUITE...]
 #   Suites: bats nodejs python golang docker runzivo-runners
 #   Default: all suites. Outside GitHub Actions the docker suite is
 #   skipped with a warning when no Docker daemon is reachable.
@@ -8,8 +8,8 @@ set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/../.." && pwd -P)"
-# shellcheck source=../lib/errors.sh
-source "${SCRIPT_DIR}/../lib/errors.sh"
+# shellcheck source=../lib/03-errors.sh
+source "${SCRIPT_DIR}/../lib/03-errors.sh"
 
 errors_install_traps
 
@@ -21,18 +21,18 @@ run_suite() {
       bats --print-output-on-failure "${REPO_ROOT}/tests/bats"
       ;;
     nodejs | python | golang)
-      bash "${examples}/$1/ci/test.sh"
+      bash "${examples}/$1/ci/01-test.sh"
       ;;
     docker)
       if ! in_github_actions && ! docker info >/dev/null 2>&1; then
         log_warn "skipping docker suite: no Docker daemon reachable"
         return 0
       fi
-      bash "${examples}/docker/ci/build.sh"
-      bash "${examples}/docker/ci/test.sh"
+      bash "${examples}/docker/ci/01-build.sh"
+      bash "${examples}/docker/ci/02-test.sh"
       ;;
     runzivo-runners)
-      bash "${examples}/runzivo-runners/ci/runner-info.sh"
+      bash "${examples}/runzivo-runners/ci/01-runner-info.sh"
       ;;
     *) die "unknown suite: $1" 2 ;;
   esac

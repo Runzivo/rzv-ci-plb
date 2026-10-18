@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# Tests for scripts/lib/logging.sh.
+# Tests for scripts/lib/01-logging.sh.
 
 setup() {
-  load test_helper
-  # shellcheck source=../../scripts/lib/logging.sh
-  source "${LIB_DIR}/logging.sh"
+  load 00-test-helper
+  # shellcheck source=../../scripts/lib/01-logging.sh
+  source "${LIB_DIR}/01-logging.sh"
 }
 
 @test "log_info writes a timestamped [INFO] line to stderr only" {

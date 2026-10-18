@@ -39,4 +39,4 @@ jobs:
           # Read-only token for zizmor's online audits (known-vulnerable
           # actions, impostor commits). It is not written to disk.
           GH_TOKEN: ${{ github.token }}
-        run: bash "${GITHUB_WORKSPACE}/scripts/ci/validate.sh" security
+        run: bash "${GITHUB_WORKSPACE}/scripts/ci/01-validate.sh" security

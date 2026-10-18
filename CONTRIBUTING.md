@@ -13,8 +13,8 @@ Issues and pull requests are welcome. Keep changes small and focused.
 3. Run every check and make it pass:
 
    ```bash
-   bash scripts/ci/validate.sh
-   bash scripts/ci/test.sh
+   bash scripts/ci/01-validate.sh
+   bash scripts/ci/02-test.sh
    ```
 
 4. Pin any new action to a full commit SHA with the tag in a comment, and

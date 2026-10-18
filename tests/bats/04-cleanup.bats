@@ -1,9 +1,9 @@
 #!/usr/bin/env bats
-# Tests for scripts/lib/cleanup.sh: cleanup runs on success, failure and
+# Tests for scripts/lib/04-cleanup.sh: cleanup runs on success, failure and
 # signals, in reverse order, and never changes the exit code.
 
 setup() {
-  load test_helper
+  load 00-test-helper
   WORK="${BATS_TEST_TMPDIR}/work dir"
   mkdir -p "$WORK"
 }

@@ -18,7 +18,7 @@ write_script() {
   {
     printf '#!/usr/bin/env bash\n'
     printf 'set -Eeuo pipefail\n'
-    printf 'source %q\n' "${LIB_DIR}/errors.sh" "${LIB_DIR}/cleanup.sh" "${LIB_DIR}/paths.sh"
+    printf 'source %q\n' "${LIB_DIR}/03-errors.sh" "${LIB_DIR}/04-cleanup.sh" "${LIB_DIR}/02-paths.sh"
     printf 'errors_install_traps\n'
     printf 'cleanup_install_trap\n'
     printf '%s\n' "$2"

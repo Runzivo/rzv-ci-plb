@@ -32,12 +32,12 @@ jobs:
           persist-credentials: false
 
       - name: Build image
-        run: bash "${GITHUB_WORKSPACE}/examples/docker/ci/build.sh"
+        run: bash "${GITHUB_WORKSPACE}/examples/docker/ci/01-build.sh"
 
       - name: Smoke test image
         env:
           REPORT_DIR: ${{ runner.temp }}/reports
-        run: bash "${GITHUB_WORKSPACE}/examples/docker/ci/test.sh"
+        run: bash "${GITHUB_WORKSPACE}/examples/docker/ci/02-test.sh"
 
       - name: Upload test report
         if: failure()

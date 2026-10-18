@@ -34,7 +34,7 @@ jobs:
           tools: bats
 
       - name: Run Bats tests
-        run: bash "${GITHUB_WORKSPACE}/scripts/ci/test.sh" bats
+        run: bash "${GITHUB_WORKSPACE}/scripts/ci/02-test.sh" bats
 
   nodejs:
     name: Node.js example

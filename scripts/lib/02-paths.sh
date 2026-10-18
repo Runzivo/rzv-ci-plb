@@ -8,8 +8,8 @@ if [[ -n "${_LIB_PATHS_LOADED:-}" ]]; then
 fi
 _LIB_PATHS_LOADED=1
 
-# shellcheck source=logging.sh
-source "$(dirname -- "${BASH_SOURCE[0]}")/logging.sh"
+# shellcheck source=01-logging.sh
+source "$(dirname -- "${BASH_SOURCE[0]}")/01-logging.sh"
 
 # abs_path PATH: print the absolute physical path of an existing file or
 # directory. Returns 1 if it does not exist.

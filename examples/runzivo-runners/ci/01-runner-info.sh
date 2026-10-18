@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # Print what the job runs on: OS, kernel, CPU, memory, disk and runner
 # name. Adds a table to the job summary. Prints no secrets or tokens.
-# Usage: examples/runzivo-runners/ci/runner-info.sh   (Linux or macOS)
+# Usage: examples/runzivo-runners/ci/01-runner-info.sh   (Linux or macOS)
 # Env:   EXPECTED_LABEL  optional label to show next to the runner facts
 set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 # When you copy this example, point LIB_DIR at your copy of scripts/lib.
 LIB_DIR="$(cd -- "${SCRIPT_DIR}/../../../scripts/lib" && pwd -P)"
-# shellcheck source=../../../scripts/lib/errors.sh
-source "${LIB_DIR}/errors.sh"
+# shellcheck source=../../../scripts/lib/03-errors.sh
+source "${LIB_DIR}/03-errors.sh"
 
 errors_install_traps
 require_cmd uname df

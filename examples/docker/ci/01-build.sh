@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Build the Docker example image. Unit tests run inside the build stage.
-# Usage: examples/docker/ci/build.sh   (works from any directory)
+# Usage: examples/docker/ci/01-build.sh   (works from any directory)
 # Env:   IMAGE  image reference to tag (default: docker-example:local)
 set -Eeuo pipefail
 
@@ -8,8 +8,8 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 APP_DIR="$(cd -- "${SCRIPT_DIR}/.." && pwd -P)"
 # When you copy this example, point LIB_DIR at your copy of scripts/lib.
 LIB_DIR="$(cd -- "${SCRIPT_DIR}/../../../scripts/lib" && pwd -P)"
-# shellcheck source=../../../scripts/lib/errors.sh
-source "${LIB_DIR}/errors.sh"
+# shellcheck source=../../../scripts/lib/03-errors.sh
+source "${LIB_DIR}/03-errors.sh"
 
 errors_install_traps
 require_cmd docker

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Validate workflows and shell scripts.
-# Usage: scripts/ci/validate.sh [lint|security|all]   (default: all)
+# Usage: scripts/ci/01-validate.sh [lint|security|all]   (default: all)
 #   lint      actionlint, shellcheck, shfmt
 #   security  zizmor (set GH_TOKEN to enable its online audits)
 set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/../.." && pwd -P)"
-# shellcheck source=../lib/errors.sh
-source "${SCRIPT_DIR}/../lib/errors.sh"
+# shellcheck source=../lib/03-errors.sh
+source "${SCRIPT_DIR}/../lib/03-errors.sh"
 
 errors_install_traps
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Smoke test the Docker example image: start a container, wait for
 # /healthz, then remove the container on any exit.
-# Usage: examples/docker/ci/test.sh   (run ci/build.sh first)
+# Usage: examples/docker/ci/02-test.sh   (run ci/01-build.sh first)
 # Env:   IMAGE       image reference to test (default: docker-example:local)
 #        REPORT_DIR  where to write container logs (default: .reports)
 set -Eeuo pipefail
@@ -10,10 +10,10 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 APP_DIR="$(cd -- "${SCRIPT_DIR}/.." && pwd -P)"
 # When you copy this example, point LIB_DIR at your copy of scripts/lib.
 LIB_DIR="$(cd -- "${SCRIPT_DIR}/../../../scripts/lib" && pwd -P)"
-# shellcheck source=../../../scripts/lib/errors.sh
-source "${LIB_DIR}/errors.sh"
-# shellcheck source=../../../scripts/lib/cleanup.sh
-source "${LIB_DIR}/cleanup.sh"
+# shellcheck source=../../../scripts/lib/03-errors.sh
+source "${LIB_DIR}/03-errors.sh"
+# shellcheck source=../../../scripts/lib/04-cleanup.sh
+source "${LIB_DIR}/04-cleanup.sh"
 
 errors_install_traps
 cleanup_install_trap
@@ -22,7 +22,7 @@ require_cmd docker curl
 IMAGE="${IMAGE:-docker-example:local}"
 REPORT_DIR="${REPORT_DIR:-${APP_DIR}/.reports}"
 mkdir -p -- "$REPORT_DIR"
-docker image inspect "$IMAGE" >/dev/null 2>&1 || die "image not found: ${IMAGE}; run ci/build.sh first"
+docker image inspect "$IMAGE" >/dev/null 2>&1 || die "image not found: ${IMAGE}; run ci/01-build.sh first"
 
 container_id=""
 save_logs_and_remove() {

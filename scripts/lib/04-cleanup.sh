@@ -11,8 +11,8 @@ if [[ -n "${_LIB_CLEANUP_LOADED:-}" ]]; then
 fi
 _LIB_CLEANUP_LOADED=1
 
-# shellcheck source=logging.sh
-source "$(dirname -- "${BASH_SOURCE[0]}")/logging.sh"
+# shellcheck source=01-logging.sh
+source "$(dirname -- "${BASH_SOURCE[0]}")/01-logging.sh"
 
 _CLEANUP_ENTRIES=()
 

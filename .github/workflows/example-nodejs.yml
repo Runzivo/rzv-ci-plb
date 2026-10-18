@@ -39,7 +39,7 @@ jobs:
       - name: Test
         env:
           REPORT_DIR: ${{ runner.temp }}/reports
-        run: bash "${GITHUB_WORKSPACE}/examples/nodejs/ci/test.sh"
+        run: bash "${GITHUB_WORKSPACE}/examples/nodejs/ci/01-test.sh"
 
       - name: Upload test report
         if: failure()

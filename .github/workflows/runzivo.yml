@@ -38,7 +38,7 @@ jobs:
       - name: Show runner
         env:
           EXPECTED_LABEL: ${{ vars.RUNZIVO_RUNNER_LABEL }}
-        run: bash "${GITHUB_WORKSPACE}/examples/runzivo-runners/ci/runner-info.sh"
+        run: bash "${GITHUB_WORKSPACE}/examples/runzivo-runners/ci/01-runner-info.sh"
 
   nodejs:
     name: Node.js example

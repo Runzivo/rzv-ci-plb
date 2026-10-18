@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # Install pinned validation tools on a Linux x86_64 runner. Every download
 # is checked against a SHA-256 digest; bats is checked against a commit.
-# Usage: scripts/ci/install-tools.sh TOOL...   (or TOOLS="a b" in the env)
+# Usage: scripts/ci/00-install-tools.sh TOOL...   (or TOOLS="a b" in the env)
 #   Tools: actionlint shellcheck shfmt bats zizmor
 # Env:   INSTALL_DIR  target bin dir (default: $RUNNER_TEMP/ci-tools/bin)
 # On macOS use Homebrew instead: brew install actionlint shellcheck shfmt bats-core zizmor
 set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
-# shellcheck source=../lib/errors.sh
-source "${SCRIPT_DIR}/../lib/errors.sh"
-# shellcheck source=../lib/cleanup.sh
-source "${SCRIPT_DIR}/../lib/cleanup.sh"
+# shellcheck source=../lib/03-errors.sh
+source "${SCRIPT_DIR}/../lib/03-errors.sh"
+# shellcheck source=../lib/04-cleanup.sh
+source "${SCRIPT_DIR}/../lib/04-cleanup.sh"
 
 errors_install_traps
 cleanup_install_trap

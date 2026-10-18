@@ -1,12 +1,12 @@
 #!/usr/bin/env bats
-# Tests for scripts/examples/load-credentials.sh. The main property: the
+# Tests for scripts/examples/01-load-credentials.sh. The main property: the
 # value reaches the command's environment and never appears in output.
 
 SECRET='s3cr3t-Value-42'
 
 setup() {
-  load test_helper
-  LOADER="${REPO_ROOT}/scripts/examples/load-credentials.sh"
+  load 00-test-helper
+  LOADER="${REPO_ROOT}/scripts/examples/01-load-credentials.sh"
   CRED_FILE="${BATS_TEST_TMPDIR}/creds.env"
   printf '# local test credentials\nOTHER=x\nAPI_TOKEN=%s\n' "$SECRET" >"$CRED_FILE"
   chmod 600 "$CRED_FILE"
@@ -51,7 +51,7 @@ stub() {
   cp -R "${REPO_ROOT}/scripts/lib" "${REPO_ROOT}/scripts/examples" "${copy}/scripts/"
   cp "$CRED_FILE" "${copy}/creds.env"
   chmod 600 "${copy}/creds.env"
-  CRED_FILE="${copy}/creds.env" run "${copy}/scripts/examples/load-credentials.sh" API_TOKEN -- true
+  CRED_FILE="${copy}/creds.env" run "${copy}/scripts/examples/01-load-credentials.sh" API_TOKEN -- true
   [ "$status" -eq 1 ]
   [[ "$output" == *"must live outside the repository"* ]]
 }

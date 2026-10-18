@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# Tests for scripts/lib/paths.sh.
+# Tests for scripts/lib/02-paths.sh.
 
 setup() {
-  load test_helper
-  # shellcheck source=../../scripts/lib/paths.sh
-  source "${LIB_DIR}/paths.sh"
+  load 00-test-helper
+  # shellcheck source=../../scripts/lib/02-paths.sh
+  source "${LIB_DIR}/02-paths.sh"
   ROOT="$(cd -- "$BATS_TEST_TMPDIR" && pwd -P)/root dir"
   mkdir -p "${ROOT}/sub" "${ROOT}-other"
   touch "${ROOT}/sub/file.txt"

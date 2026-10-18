@@ -3,8 +3,8 @@
 # command with them. The caller (a person or an AI agent) only names the
 # variables; values are never printed, logged or written to disk.
 #
-# Usage: load-credentials.sh NAME [NAME...] -- COMMAND [ARGS...]
-#   e.g. load-credentials.sh GH_TOKEN -- gh api user --jq .login
+# Usage: 01-load-credentials.sh NAME [NAME...] -- COMMAND [ARGS...]
+#   e.g. 01-load-credentials.sh GH_TOKEN -- gh api user --jq .login
 #
 # Sources, chosen by CRED_SOURCE (default: auto):
 #   keychain  macOS Keychain item: service $CRED_KEYCHAIN_SERVICE
@@ -20,10 +20,10 @@ set +x # never trace this script: traced lines would show values
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/../.." && pwd -P)"
-# shellcheck source=../lib/errors.sh
-source "${SCRIPT_DIR}/../lib/errors.sh"
-# shellcheck source=../lib/paths.sh
-source "${SCRIPT_DIR}/../lib/paths.sh"
+# shellcheck source=../lib/03-errors.sh
+source "${SCRIPT_DIR}/../lib/03-errors.sh"
+# shellcheck source=../lib/02-paths.sh
+source "${SCRIPT_DIR}/../lib/02-paths.sh"
 
 errors_install_traps
 

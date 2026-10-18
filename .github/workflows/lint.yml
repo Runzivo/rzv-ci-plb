@@ -33,4 +33,4 @@ jobs:
           tools: actionlint shellcheck shfmt
 
       - name: Lint
-        run: bash "${GITHUB_WORKSPACE}/scripts/ci/validate.sh" lint
+        run: bash "${GITHUB_WORKSPACE}/scripts/ci/01-validate.sh" lint

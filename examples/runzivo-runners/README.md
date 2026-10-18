@@ -8,7 +8,7 @@ runner label changes.
 | File | Purpose |
 | --- | --- |
 | [`runzivo.yml`](../../.github/workflows/runzivo.yml) | Calls the example workflows with the Runzivo label |
-| [`ci/runner-info.sh`](ci/runner-info.sh) | Writes OS, CPU, memory and disk to the job summary |
+| [`ci/01-runner-info.sh`](ci/01-runner-info.sh) | Writes OS, CPU, memory and disk to the job summary |
 
 ## Set up
 

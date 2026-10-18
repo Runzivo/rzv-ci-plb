@@ -38,6 +38,6 @@ in [zizmor.yml](../.github/zizmor.yml) until it lands.
 `/bin/bash`. The library works there, but `#!/usr/bin/env bash` picks a
 newer Bash from Homebrew if installed. CI uses the runner's Bash 5.
 
-**Docker suite skipped locally.** `scripts/ci/test.sh` skips it when no
+**Docker suite skipped locally.** `scripts/ci/02-test.sh` skips it when no
 Docker daemon is reachable outside CI. Start Docker and run
-`bash scripts/ci/test.sh docker`.
+`bash scripts/ci/02-test.sh docker`.

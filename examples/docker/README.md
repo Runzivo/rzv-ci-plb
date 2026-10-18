@@ -6,16 +6,16 @@ separate scripts and separate workflow steps.
 | File | Purpose |
 | --- | --- |
 | [`Dockerfile`](Dockerfile) | Multi-stage build, unit tests in the build stage, distroless runtime |
-| [`ci/build.sh`](ci/build.sh) | Builds and labels the image |
-| [`ci/test.sh`](ci/test.sh) | Starts the container, polls `/healthz` with `retry`, always removes the container |
+| [`ci/01-build.sh`](ci/01-build.sh) | Builds and labels the image |
+| [`ci/02-test.sh`](ci/02-test.sh) | Starts the container, polls `/healthz` with `retry`, always removes the container |
 | [`example-docker.yml`](../../.github/workflows/example-docker.yml) | Workflow job |
 
 Run locally (needs a Docker daemon):
 
 ```bash
-bash examples/docker/ci/build.sh
-bash examples/docker/ci/test.sh
-IMAGE=myapp:dev bash examples/docker/ci/build.sh   # another tag
+bash examples/docker/ci/01-build.sh
+bash examples/docker/ci/02-test.sh
+IMAGE=myapp:dev bash examples/docker/ci/01-build.sh   # another tag
 ```
 
 Patterns shown:
