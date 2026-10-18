@@ -1,0 +1,51 @@
+name: Example Go
+
+# Reusable workflow. ci.yml calls it on GitHub-hosted runners and
+# runzivo.yml calls it on a Runzivo runner. To use it on its own, copy it
+# and replace workflow_call with your triggers (push, pull_request).
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: Runner label for the job.
+        type: string
+        default: ubuntu-latest
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: examples/golang/go.mod
+          # No go.sum to key a cache on yet. Enable once you add modules.
+          cache: false
+
+      - name: Test
+        env:
+          REPORT_DIR: ${{ runner.temp }}/reports
+        run: bash "${GITHUB_WORKSPACE}/examples/golang/ci/test.sh"
+
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: golang-test-report
+          path: ${{ runner.temp }}/reports
+          if-no-files-found: ignore
+          retention-days: 7

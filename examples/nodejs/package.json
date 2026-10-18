@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small Node.js module used by the CI example.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/slugify.js",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

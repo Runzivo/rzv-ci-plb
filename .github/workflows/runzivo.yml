@@ -1,0 +1,62 @@
+name: Runzivo runners
+
+# Runs the same example jobs on a Runzivo runner. Only the runner label
+# changes. Set the repository variable RUNZIVO_RUNNER_LABEL (for example
+# rzv-ubuntu-24.04-x64-2vcpu-8gb) to enable it; without it every job is
+# skipped. It does not run on pull requests, so code from forks never
+# reaches a self-hosted runner.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Runzivo runs one job at a time today, so queue runs instead of
+# cancelling them.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  runner-info:
+    name: Runner info
+    if: vars.RUNZIVO_RUNNER_LABEL != ''
+    runs-on: ${{ vars.RUNZIVO_RUNNER_LABEL }}
+    timeout-minutes: 5
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Show runner
+        env:
+          EXPECTED_LABEL: ${{ vars.RUNZIVO_RUNNER_LABEL }}
+        run: bash "${GITHUB_WORKSPACE}/examples/runzivo-runners/ci/runner-info.sh"
+
+  nodejs:
+    name: Node.js example
+    needs: runner-info
+    uses: ./.github/workflows/example-nodejs.yml
+    with:
+      runner: ${{ vars.RUNZIVO_RUNNER_LABEL }}
+
+  python:
+    name: Python example
+    needs: runner-info
+    uses: ./.github/workflows/example-python.yml
+    with:
+      runner: ${{ vars.RUNZIVO_RUNNER_LABEL }}
+
+  golang:
+    name: Go example
+    needs: runner-info
+    uses: ./.github/workflows/example-golang.yml
+    with:
+      runner: ${{ vars.RUNZIVO_RUNNER_LABEL }}
