@@ -1,0 +1,3 @@
+# Resolve `source` paths relative to each script and follow them.
+source-path=SCRIPTDIR
+external-sources=true

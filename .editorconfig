@@ -1,0 +1,27 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# shfmt reads these keys.
+[*.{sh,bash}]
+shell_variant = bash
+switch_case_indent = true
+
+[*.bats]
+shell_variant = bats
+switch_case_indent = true
+
+[*.go]
+indent_style = tab
+
+[*.py]
+indent_size = 4
+
+[Makefile]
+indent_style = tab

@@ -1,0 +1,11 @@
+# Test reports and caches written by the example scripts.
+.reports/
+node_modules/
+__pycache__/
+*.pyc
+
+# Local credentials. Keep real ones outside the repository; see
+# docs/ai-agent-guide.md.
+.env
+.env.*
+*.env
