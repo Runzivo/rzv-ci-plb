@@ -20,7 +20,7 @@ defaults:
 jobs:
   bats:
     name: Bats (shell helpers)
-    runs-on: ubuntu-latest
+    runs-on: rzv-ubuntu-24.04-x64-2vcpu-8gb
     timeout-minutes: 10
     steps:
       - name: Check out
