@@ -39,15 +39,23 @@ jobs:
   nodejs:
     name: Node.js example
     uses: ./.github/workflows/example-nodejs.yml
+    with:
+      runner: rzv-ubuntu-24.04-x64-2vcpu-8gb
 
   python:
     name: Python example
     uses: ./.github/workflows/example-python.yml
+    with:
+      runner: rzv-ubuntu-24.04-x64-2vcpu-8gb
 
   golang:
     name: Go example
     uses: ./.github/workflows/example-golang.yml
+    with:
+      runner: rzv-ubuntu-24.04-x64-2vcpu-8gb
 
   docker:
     name: Docker example
     uses: ./.github/workflows/example-docker.yml
+    with:
+      runner: rzv-ubuntu-24.04-x64-2vcpu-8gb
