@@ -1,5 +1,9 @@
 # Instructions for coding agents
 
+Runzivo-wide rules (autonomy, reviews, testing, shared/prd rollout, approvals, coordination): read [rzv-business/operating-policy.md](https://github.com/Runzivo/rzv-business/blob/main/operating-policy.md) (local checkout: ../rzv-business/operating-policy.md) and its operating-decisions.md before any work. This file adds only rzv-ci-plb-specific guidance.
+That link is for Runzivo agents. Everyone else can skip it: the rules below
+stand on their own.
+
 Apply these rules when you write or change a workflow, here or in a
 repository that copies these patterns.
 
